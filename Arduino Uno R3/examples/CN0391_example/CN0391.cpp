@@ -302,16 +302,16 @@ void CN0391_display_data(void)
 {
    channel_t i;
 
-   for(i = CHANNEL_P1; i <= CHANNEL_P4; i = static_cast<channel_t>(i+1)){
+   for(i = CHANNEL_P4; i <= CHANNEL_P4; i = static_cast<channel_t>(i+1)){
 
-         Serial.print(F("P")); Serial.print(i+1); Serial.print(F("channel (Type ")); Serial.print(thermocouple_type[th_types[i]]); Serial.println(F(")"));
-         Serial.print(F("\t_ADC CJ code = ")); Serial.println((int)_ADCValue0[i]);
-         Serial.print(F("\tR_rtd = ")); Serial.print(rRtdValue[i]); Serial.println(F(" ohmi"));
-         Serial.print(F("\tcj_Temp = ")); Serial.println(temp0[i]);
-         Serial.print(F("\tcj_Voltage = ")); Serial.print(cj_Voltage[i]); Serial.println(F(" mV"));
-         Serial.print(F("\t_ADC TC code = ")); Serial.println((int)_ADCValue1[i]);
-         Serial.print(F("\tth_Voltage_read = ")); Serial.print(th_Voltage_read[i]); Serial.println(F(" mV"));
-         Serial.print(F("\tth_Voltage = ")); Serial.print(th_Voltage[i]); Serial.println(F(" mV"));
+//         Serial.print(F("P")); Serial.print(i+1); Serial.print(F("channel (Type ")); Serial.print(thermocouple_type[th_types[i]]); Serial.println(F(")"));
+//         Serial.print(F("\t_ADC CJ code = ")); Serial.println((int)_ADCValue0[i]);
+//         Serial.print(F("\tR_rtd = ")); Serial.print(rRtdValue[i]); Serial.println(F(" ohmi"));
+//         Serial.print(F("\tcj_Temp = ")); Serial.println(temp0[i]);
+//         Serial.print(F("\tcj_Voltage = ")); Serial.print(cj_Voltage[i]); Serial.println(F(" mV"));
+//         Serial.print(F("\t_ADC TC code = ")); Serial.println((int)_ADCValue1[i]);
+//         Serial.print(F("\tth_Voltage_read = ")); Serial.print(th_Voltage_read[i]); Serial.println(F(" mV"));
+//         Serial.print(F("\tth_Voltage = ")); Serial.print(th_Voltage[i]); Serial.println(F(" mV"));
 
 
          if(errFlag[i] == ERR_UNDER_RANGE){
