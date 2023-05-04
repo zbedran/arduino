@@ -82,8 +82,8 @@ void CN0391_read_reg(void);
 void CN0391_set_calibration_mode(uint16_t mode);
 void CN0391_set_power_mode(int mode);
 
-void CN0391_set_data(void);
-void CN0391_display_data(void);
+void CN0391_set_data(int channel);
+void CN0391_display_data(int channel);
 
 
 #define YES    1

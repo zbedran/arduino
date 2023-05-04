@@ -276,11 +276,30 @@ void CN0391_init() {
 }
 
 
-void CN0391_set_data(void)
+void CN0391_set_data(int channel)
 {
-   channel_t i;
+  channel_t i;
 
-  for(i = CHANNEL_P1; i <= CHANNEL_P4; i = static_cast<channel_t>(i+1)){
+  switch(channel) {
+    case 4:
+      i = CHANNEL_P4;
+      break;
+    case 3:
+      i = CHANNEL_P3;
+      break;
+    case 2:
+      i = CHANNEL_P2;
+      break;
+    case 1:
+      i = CHANNEL_P1;
+      break;
+
+  }
+ 
+  
+
+
+  //for(i = CHANNEL_P1; i <= CHANNEL_P4; i = static_cast<channel_t>(i+1)){
 
         CN0391_enable_current_source(i);
         
@@ -295,14 +314,36 @@ void CN0391_set_data(void)
         CN0391_calc_th_temperature(i, temp0[i], &temp1[i]);
        
 
-   }
+   //}
 
 }
-void CN0391_display_data(void)
+void CN0391_display_data(int channel)
 {
    channel_t i;
+   
+   switch(channel) {
+     case 4 :
+        i = CHANNEL_P4;
+        break;
+     case 3 : 
+        i = CHANNEL_P3;
+        break;
+     case 2 :
+        i = CHANNEL_P2;
+        break;
+     case 1:
+        i = CHANNEL_P1;
+        break;
+        // default:
+        //     Serial.println(F("Channel hasn't initialized properly. Default channel = P4 used."));
+        //     i = CHANNEL_P4;
+        //     break;
+   }
 
-   for(i = CHANNEL_P4; i <= CHANNEL_P4; i = static_cast<channel_t>(i+1)){
+   //CHANNEL_SWITCH = CHANNEL_P4;
+  //Serial.println(channel);
+  //Serial.println(CHANNEL_SWITCH);
+   //for(i = CHANNEL_SWITCH; i <= CHANNEL_SWITCH; i = static_cast<channel_t>(i+1)){
 
 //         Serial.print(F("P")); Serial.print(i+1); Serial.print(F("channel (Type ")); Serial.print(thermocouple_type[th_types[i]]); Serial.println(F(")"));
 //         Serial.print(F("\t_ADC CJ code = ")); Serial.println((int)_ADCValue0[i]);
@@ -328,13 +369,13 @@ void CN0391_display_data(void)
                   errFlag[i] = NO_ERR;
                 }
                 else{
-                  Serial.print(F("\tth_temp = ")); Serial.print(temp1[i]); Serial.println(F(" °C"));
+                  Serial.print(F("\tTemperature_Port_")); Serial.print(channel); Serial.print(F(" = ")); Serial.print(temp1[i]); Serial.println(F(" °C"));
                 }
           }
 
-   }
-   Serial.println("");
-   Serial.println("");
+   //}
+   // Serial.println("");
+   // Serial.println("");
 
 }
 
